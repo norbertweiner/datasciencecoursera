@@ -3,7 +3,29 @@
 
 
 
-##Components of Tidy Data
+#Components of Tidy Data
 
-  *
+  ##The tidy data
+  
+      *Each variable you measure should be in one column
+      *Each different observation of that variable should be in a different row
+      *There should be one table for each "kind" of variable
+      *If you have multiple tables, they should include a column in the table that allows them to be linked
+      
+  ##The code book
+       
 
+  ##The instruction list
+       * The input for the script is the raw data
+       * The ouput is the processed ,tidy data
+       * There are no parameters to the script
+       
+  #Downloading Files
+       * file.exist("directoryName")
+       * dir.create("dir name")
+       
+       *if(!file.exist("data")){dir.create("data")}
+       
+       *download.file()
+       
+    
