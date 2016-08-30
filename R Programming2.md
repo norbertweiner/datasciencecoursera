@@ -56,6 +56,26 @@ of seconds since 1970-01-01 (for 'POSIXct') or a list of seconds, minutes, hours
 * for(letter in x){print letter}
 * for(i in seq_along(x)){print x[i]}
 * for(i in seq_len(x)){print x[i]}
-    
+* stop loop : break      
+* next  : skip and re-loop
+* return : stop and return the value
+
+##Functions
+
+* f<-function(<argument>) { Do something }   firt class object. Pass functio as variables. Could Nest functions
+* Match argument by name and by position
+* Lazy Evaluation  
+* ... Arguement     
+* Scoping Rules: Symbol Binding     search()  search global environment first, then search namespace of the packages
+* R has separate namespaces for functions: object named c while function named c
+* Scoping Rules
+**lexical scoping :
+                    1.the values of free variables are searched for in the environment in which the function was defined.
+                    2.An environment is a collection of (symbol, value) pairs.
+                    3.every environment has a parent environment.
+                    4.A function + an environment = a closure 
+                    5.search until top-level environment, this usually global or package namespace; Then, search down until reach empty environment
+**Function could return another function in R
+                    
 
   
