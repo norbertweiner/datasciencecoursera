@@ -28,4 +28,11 @@
        
        *download.file()
        
-    
+  ##Quiz
+  
+      *which is fastest with using data.table  : The first one
+      
+          DT[,mean(pwgtp15),by=SEX]
+          tapply(DT$pwgtp15,DT$SEX,mean)
+          sapply(split(DT$pwgtp15,DT$SEX),mean)
+          mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15)
