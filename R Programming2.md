@@ -83,6 +83,18 @@ make.power <- function(n) {
 }  
 cube<-make.power(3)  
 square<-make.power(2)  
-                    
+
+*ls(environment(cube))
+*get("n",environment(cube))
+
+*lexicol scoping and dynamic scoping  
+lexical will go to the parent environment
+dynamic scoping will use the calling environment: maybe inside of the other function
+
+*Consequence of lexical scoping: all objects must be stored in memory; all functions must carry a pointer to their defining environment. 
+
+##Optimization 
+* optim,nlm,optimize
+*construct function to output target function, such as loglikelyhood function
 
   
