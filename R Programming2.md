@@ -51,6 +51,11 @@ of seconds since 1970-01-01 (for 'POSIXct') or a list of seconds, minutes, hours
         difftime()    difftime(Sys.time(), t1, units = 'days')
         
 
+##Control Structure
 
+    *for(letter in x){print letter}
+    *for(i in seq_along(x)){print x[i]}
+    *for(i in seq_len(x)){print x[i]}
+    
 
   
