@@ -77,12 +77,12 @@ of seconds since 1970-01-01 (for 'POSIXct') or a list of seconds, minutes, hours
 - 5.search until top-level environment, this usually global or package namespace; Then, search down until reach empty environment
 
 >Function could return another function in R
-make.power <- function(n) {
-    pow<-function(x){x^n}
-    pow
-}
-cube<-make.power(3)
-square<-make.power(2)
+>>make.power <- function(n) {
+>>    pow<-function(x){x^n}
+>>    pow
+>>}
+>>cube<-make.power(3)
+>>square<-make.power(2)
                     
 
   
