@@ -65,4 +65,12 @@ tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)
                         5. Split more than one level: x <- rnorm(10)   f1 <- gl(2, 5) 2 levels, each repeat 5 times f2 <- gl(5, 2)  gender and race, two level.  interaction(f1,f2) is combination of two levels and 5 levels, total 10 levels. 
                         split(x,list(f1,f2), drop=T)  automatically do the interaction. drop will drop empty levels. 
 
-
+##Debugging
+        *Traceback  prints out the function call stack after an error occurs; does nothing if there’s no error
+        *debug  flags a function for “debug” mode which allows you to step through execution of a function one line at a time
+        *brower suspends the execution of a function wherever it is called and puts the function in debug mode
+        *trace  allows you to insert debugging code into a function a specific places
+        *recover allows you to modify the error behavior so that you can browse the function call stack
+        
+        *debug(lm)
+        * options(error = recover); read.csv("nosuchfile")
