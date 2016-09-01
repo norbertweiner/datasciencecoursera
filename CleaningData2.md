@@ -61,7 +61,49 @@
 > xpathSApply(parsedHtml,"//title",xmlValue)  
   
 ###Websites with password
-  
-  
+* pg2 = GET("http://httpbin.org/basic-auth/user/passwd",authenticate("user","passwd"))  
+> names(pg2)  Then we could use Content to extract the response
+
+* Using handles
+> google = handle("http://google.com")
+>> pg1 = GET(handle=google,path="/")
+>> pg2 = GET(handle=google,path="search")   Don't need to keep authenticate, cookies are stored
+
+
+##Reading Data From API
+
+* using httr could get it from API
+> myapp = oauth_app("twitter",key = "yourConsumerKeyHere",secret = "yourConsumerSecretHere")  
+> sig = sign_oauth1.0(myapp,token="yourTokenHere",token_secret = "yourTokenSecretHere")  
+> homeTL = GET("https://api.twitter.com/1.1/statuses/home_timeline.json",sig)  
+> homeTL = GET("https://api.twitter.com/1.1/statuses/home_timeline.json",sig)  
+> json1 = content(homeTL)  
+> json2 = jsonlite::fromJSON(toJSON(json1))  
+> httr allows GET,POST,PUT,DELETE requests if you are authorized
+
+##Reading from other sources
+*file - open connection to text file
+*gzfile - 
+*bzfile - 
+
+* read.arff
+* read.dta
+* read.mtp
+* read.xport (SAS)
+* read.spss
+* read.octav
+
+*reading images:  jpeg, readbitmap, png, EBImage
+
+*GIS data:  rdgal, rgeos, raster
+
+*Music Data: tuneR,  seewave
+
+*RMongo
+
+
+
+
+
 
 
