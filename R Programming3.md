@@ -31,5 +31,44 @@ tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)
 
 *tapply(flags$population, flags$red, summary)
 
+##lapply
+
+##apply
+* apply function to arrays
+
+apply(x,margin=2, mean)  x is 20 by 10 matrix. margin=2 means the second dimension. function works on every column
+
+* rowSum = apply(x,1,sum)   so we have rowMean, colSum, ColMean.
+
+* apply(x,1,quantile,c(0.25,0.75)) calculate 25% and 75% quantile for each row. return a matrix has 2 rows and many columns
+
+##mapply
+
+* str(mapply)
+
+* apply a function to multivariate lists 
+
+* mapply(noise,1:5,1:5,2)   noise is a function with 3 parameters . first is how many rv, second is mean, third is sd.  noise(1,1,2)  noise(2,2,2)  noise(3,3,2) ....
+
+##tapply
+
+* tapply(x,Index,function,..)
+	x is a vector  
+	index is a factor or a list of factors  
+	return statistics for each group
+
+
+##split
+
+split(x,f) x is a vector, f is a factor list
+
+split data frame in montly peices
+
+* s<-split(airquality,aiquality$month)
+
+
+
+
+
 
 
