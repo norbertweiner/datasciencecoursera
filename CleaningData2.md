@@ -16,7 +16,7 @@
 
 ##Reading from HDF5
 
-> source("http://bioconductor.org/biocLite.R")
+* source("http://bioconductor.org/biocLite.R")
 > biocLite("rhdf5")
 > library(rhdf5)   created = h5createFile("example.h5")
 > created=h5createGroup("example.h5","foo")
@@ -24,7 +24,7 @@
 > created=h5createGroup("example.h5","foo/foobaa")
 > h5ls("example.h5")
 
-> h5write(A,"example.h5","foo/A")
+* h5write(A,"example.h5","foo/A")
 > B = array(seq(0.1,2.0,by=0.1),dim=c(5,2,2))
 > attr(B,"scale")<-"liter"
 > h5write(B,"example.h5","foo/foobaa/B")
@@ -45,16 +45,16 @@
 
 ###Google Scholar example
 
-> con = url("https://scholar.google.com/citations?user=HI-I6C0AAAAJ")
+* con = url("https://scholar.google.com/citations?user=HI-I6C0AAAAJ")
 > htmlCode = readLines(con)
 > close(con) 
 
-> library(XML)
+* library(XML)
 > url<-"https://scholar.google.com/citations?user=HI-I6C0AAAAJ"
 > html<-htmlTreeParse(url,useInternalNodes=T)
 > xpathSApply(html,"//title",xmlValue)
   
-> library(httr)
+* library(httr)
 > html2 = GET(url)
 > content2 = content(html2,as="text")
 > parsedHtml = htmlParse(content2,asText=TRUE)
