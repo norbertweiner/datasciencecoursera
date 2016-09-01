@@ -50,15 +50,15 @@
 > close(con) 
 
 * library(XML)
-> url<-"https://scholar.google.com/citations?user=HI-I6C0AAAAJ"
-> html<-htmlTreeParse(url,useInternalNodes=T)
-> xpathSApply(html,"//title",xmlValue)
+> url<-"https://scholar.google.com/citations?user=HI-I6C0AAAAJ"  
+> html<-htmlTreeParse(url,useInternalNodes=T)  
+> xpathSApply(html,"//title",xmlValue)  
   
-* library(httr)
-> html2 = GET(url)
-> content2 = content(html2,as="text")
-> parsedHtml = htmlParse(content2,asText=TRUE)
-> xpathSApply(parsedHtml,"//title",xmlValue)
+* library(httr)   
+> html2 = GET(url)  
+> content2 = content(html2,as="text")  
+> parsedHtml = htmlParse(content2,asText=TRUE)  
+> xpathSApply(parsedHtml,"//title",xmlValue)  
   
 ###Websites with password
   
