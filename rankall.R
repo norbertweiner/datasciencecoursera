@@ -1,8 +1,9 @@
-best <- function(state, outcome) {
+rankall <- function(outcome, num = "best") {
   ## Read outcome data
   ## Check that state and outcome are valid
-  ## Return hospital name in that state with lowest 30-day death
-  ## rate
+  ## For each state, find the hospital of the given rank
+  ## Return a data frame with the hospital names and the
+  ## (abbreviated) state name
   
   #set directory and download the necessary data
   setwd("C:/Users/Zhang Zhang/datasciencespecialization")
@@ -18,28 +19,17 @@ best <- function(state, outcome) {
   parameter2<-c("heart attack","heart failure","pneumonia")
   
   result <- read.csv(care_measure_data, colClasses = "character")
-  
-  parameter1<-unique(result$State)
+  source('rankhospital.R')
   
   ##check parameters
-  if(!(state %in% parameter1)){stop("invalid state")}
   if(!(outcome %in% parameter2)){stop("invalid outcome")}
   
-  #assign the col number for certain rate
-  if(outcome=="heart attack"){
-    col<-11
-  }else if(outcome=="heart failure"){
-    col<-17
-  }else{
-    col<-23
-  }
-  #convert to numeric
-  result[,col]<-as.numeric(result[,col])
+  AllStates<-unique(result$State)
   
-  #sort state information
-  result<-result[result$State==state,]
+  hospitals<-sapply(AllStates,rankhospital,num=num,outcome=outcome)
   
-  #sort rate
-  result[order(result[,col],result$Hospital.Name,na.last = NA),]$Hospital.Name[1]
-
+  final<-data.frame(hospital=hospitals,state=AllStates)
+  final[order(final$state),]
+  
+  
 }

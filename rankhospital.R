@@ -1,4 +1,9 @@
-best <- function(state, outcome) {
+rankhospital <- function(state, outcome, num = "best") {
+  ## Read outcome data
+  ## Check that state and outcome are valid
+  ## Return hospital name in that state with the given rank
+  ## 30-day death rate
+  
   ## Read outcome data
   ## Check that state and outcome are valid
   ## Return hospital name in that state with lowest 30-day death
@@ -38,8 +43,18 @@ best <- function(state, outcome) {
   
   #sort state information
   result<-result[result$State==state,]
+  sorted_result<-result[order(result[,col],result$Hospital.Name,na.last = NA),]
   
-  #sort rate
-  result[order(result[,col],result$Hospital.Name,na.last = NA),]$Hospital.Name[1]
-
+  if(num=="best"){
+    sorted_result$Hospital.Name[1]
+  }else if(num=="worst"){
+    tail(sorted_result$Hospital.Name,n=1)
+  }else{
+    if(num>length(sorted_result$Hospital.Name)){
+      NA
+    }else{
+      sorted_result$Hospital.Name[num]
+    }
+    
+  }
 }
