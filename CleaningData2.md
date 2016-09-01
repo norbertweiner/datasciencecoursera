@@ -93,13 +93,15 @@
 * read.spss
 * read.octav
 
-*reading images:  jpeg, readbitmap, png, EBImage
+* reading images:  jpeg, readbitmap, png, EBImage
 
-*GIS data:  rdgal, rgeos, raster
+* GIS data:  rdgal, rgeos, raster
 
-*Music Data: tuneR,  seewave
+* Music Data: tuneR,  seewave
 
-*RMongo
+* RMongo
+
+##Homework from WEEK3
 
 
 
