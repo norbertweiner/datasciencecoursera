@@ -102,6 +102,23 @@
 * RMongo
 
 ##Homework from WEEK3
+1. When readlines, we get many lines. if we do GET, then it is a char vector
+2. read.fwf for fixed width data set. 
+3. library(readr)
+
+4. x <- readLines(con=url("http://www.cpc.ncep.noaa.gov/data/indices/wksst8110.for"))  
+5. Skip 4 lines  
+6. x <- x[-(1:4)]  
+7. mydata <- data.frame(var1 = substr(x,1,10),  
+                     var2 = substr(x, 16,19),  
+                     var3 = substr(x, 20, 23),  
+                     var4 = substr(x, 29, 32)  
+                     )  
+8. x<-read_fwf("fxiedWidthFile",skip = 4,fwf_widths(c(12, 7, 4, 9, 4, 9, 4, 9, 4)))
+
+##http://stackoverflow.com/questions/14383710/read-fixed-width-text-file  SOLVE TAQ DATA TOO
+##https://github.com/hadley/httr/blob/master/demo/oauth2-github.r
+
 
 
 
