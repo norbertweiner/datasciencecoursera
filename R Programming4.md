@@ -1,3 +1,40 @@
+##str()  
+* It could be used on data.frame, factors, functions and etc. After split, we can also use str()
+
+##Generating Random Numbers
+
+* d for density, r for random number generation, p for cumulative distribution, q for quantile
+* set.seed(1)  every time reset seed, you get same random sequence
+* ppois(2,2) prob. less than 2 when lamda = 2
+
+##Generating Random Numbers From a Linear Model
+
+* error term is normal
+* GLM: error is poisson(u)   
+* 
+##Random Sampling
+
+*sample()  could do sample, or permutation
+
+##R Profilier 
+
+* system.time()   return an object of class proc_time    user time: CPU time   elapsed time: "wall clock" time
+* parallel package
+* Rprof()            summaryRprof() summarize the output from Rprof()    
+* the output of summaryRprof(), by.total divides the time in each function by total run, by.self  subtracts out time spent in functions
+* 
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##Looking at Data
 
