@@ -32,4 +32,37 @@ tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)
 *tapply(flags$population, flags$red, summary)
 
 
+##LOOPING 
+
+*lapply: Loop over a list and evaluate a function on each element           lapply(x, runif, min = 0, max = 10)    anonymous function: lapply(x, function(elt) elt[,1])
+
+*sapply: Same as lapply but try to simplify the result
+
+
+*apply: Apply a function over the margins of an array
+        1. apply is used to a evaluate a function (often an anonymous one) over the margins of an array
+        2.  x <- matrix(rnorm(200), 20, 10);  apply(x, 2, mean); apply(x, 1, sum)
+        3. apply(x, 1, quantile, probs = c(0.25, 0.75))  20% quantile and 75% quantile
+        4. a <- array(rnorm(2 * 2 * 10), c(2, 2, 10))  10 matrix, every matrix is 2 by 2  three dimentional array  apply(a, c(1, 2), mean)   mean for every element in matrix across 10 matrix
+
+*tapply: Apply a function over subsets of a vector
+
+
+*mapply: Multivariate version of lapply
+
+        1.  mapply(noise, 1:5, 1:5, 2)---noise <- function(n, mean, sd)-----The return is same as list(noise(1, 1, 2), noise(2, 2, 2),noise(3, 3, 2), noise(4, 4, 2),noise(5, 5, 2))
+
+##Split
+
+        *split(x,f,drop=FALSE,...)  x is a vector or data frame,  f is a factor or a list of factors
+        * x <- c(rnorm(10), runif(10), rnorm(10, 1))      f <- gl(3, 10)     split(x, f)   gl() generate a factors
+        *  lapply(split(x, f), mean)
+        * split data frame: 
+                        1.  s <- split(airquality, airquality$Month)
+                        2. lapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))
+                        3. sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")])) 
+                        4. sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")],na.rm = TRUE))
+                        5. Split more than one level: x <- rnorm(10)   f1 <- gl(2, 5) 2 levels, each repeat 5 times f2 <- gl(5, 2)  gender and race, two level.  interaction(f1,f2) is combination of two levels and 5 levels, total 10 levels. 
+                        split(x,list(f1,f2), drop=T)  automatically do the interaction. drop will drop empty levels. 
+
 
