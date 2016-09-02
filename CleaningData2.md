@@ -12,6 +12,8 @@
 * affyMis<-fetch(query); quantile(affyMis$misMatches)
 * affyMisSmall<-fetch(query,n=10) only fetch 10 rows. dbClearResult(query);
 * r blogger  r-sql
+> localdb<-dbConnect(MySQL(),user="zhangzhang",host="localhost",password="*******")
+> result<-dbGetQuery(localdb,"show databases;")
 
 
 ##Reading from HDF5
