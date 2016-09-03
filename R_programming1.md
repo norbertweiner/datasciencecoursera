@@ -248,7 +248,50 @@ list()	  contain different classes
 * x[x %in% 1:5] = 0
 * vector addition has recycle rule
 
+* dir.create("")
+* file.create()
+* file.exist()
+* file.info()
+* file.rename()
+* file.copy()
+* file.path()
+* dir.create(file.path('testdir2','testdir3'),recursive = TRUE)
+* unlink("", recursive = TRUE)
+
+
+
+* sequence of numbers
+
+	seq(1,20)
+	seq(0,10,by=0.5)
+	seq(5,10,length=30)
+	seq(along.with = my_seq)
+	seq_along(my_seq)
+	rep(c(0,1,2),times=10)
+	rep(c(0, 1, 2), each = 10)
 	
+	paste(my_char, collapse = " ") seperate with space
+	paste("Hello", "world!", sep = " ")
+	
+	> paste(1:3,c("X", "Y", "Z"),sep = "")
+	[1] "1X" "2Y" "3Z"
+	
+	paste(LETTERS, 1:4, sep = "-")
+	
+	z <- rep(NA, 1000)
+	y <- rnorm(1000)
+	my_data <- sample(c(y, z), 100)
+	
+	x[c(-2, -10)] gives us all elements of x EXCEPT for the 2nd and 10 elements
+	
+	names(vect2) <- c("foo","bar", "norf")
+	vect[c("foo", "bar")]
+	
+	
+	dim(my_vector) <- c(4, 5)   then my_vector becomes matrix
+	
+	matrix(1:20,nrow = 10,ncol = 10)
+	my_data <- data.frame(patients, my_matrix)
 	
 	
 	
