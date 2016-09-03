@@ -21,3 +21,117 @@
 * table(data$zipCode %in% c("21212"))   data[data$zipcode %in% c("21212","21213")
 * Cross tab:  x<-xtabs(Freq~Gender+Admit,data=df)
 
+##Creat New Vairiables
+
+* Missingness indicators
+* Applying transform
+* Quantitative viriable
+
+* Creating Sequences(index for data)
+> s1<-seq(1,10,by=2)
+> seq(1,10,length=3)
+> x<-c(1,3,8,25,100)   seq(along=x) loop through x generate index
+
+* Subsetting Variables
+> %in%
+> restData$zipWrong = ifelse(restData$zipCode<0,TRUE,FALSE)    table(restData$zipWrong, restData$zipCode<0)
+
+* Creating categorical variables
+> restData$zipGroups = cut(restData$zipCode,breaks=quantile(restData$zipCode))
+> table(restData$zipGroups, restData$zipCode)
+
+* Easier Cutting
+> library(Hmisc)
+> restData$zipGroups = cut2(restData$zipCode,g=4)   table(restData$zipGroups)
+
+* Creating factor variables
+> restData$zcf <- factor(restData$zipCode)
+
+* levels of factor variables
+> yesno<-sample(c("yes","no"),size=10,replace=T)    yesnofac=factor(yesno,levels=c("yes","no"))  set "yes" as lowest level
+> relevel(yesnofac, ref="yes")
+> as.numeric(yesnofac)   then, lowest level is 1, hight level is 2
+
+* using the mutate function
+> library(Hmisc)  library(plyr)
+> restData2 = mutate(restData,zipGroups=cut2(zipCode,g=4))   table(restData2$zipGroups)
+
+* Common Transformation
+> abs()
+> sqrt()
+> ceiling(x)
+> round(x,digits=n)
+> signif
+> cos(x), sin(x)
+> log(x)
+> log2(x), log10(x)
+> exp(x)
+
+##Reshaping Data (goal is tidy data)
+> library(reshape2)
+> head(mtcars)
+
+* Melting Data Frames
+> mtcars$carname<-rownames(mtcars)  
+> carMelt<-melt(mtcars,id=c("carname","gear","cyl"),measure.vars = c("mpg","hp"))  Melting other variables
+
+* Casting Data Frames
+> cylData <- dcast(carMetl,cyl~variable)   put the cyl to the left,  then other variables
+> cylData <- dcast(carMelt, cyl~variable, mean)
+
+* Averaging values
+> tapply(InsectSpray$count, InsectSpray$spray,sum)
+
+* Another way, split
+> spIns = split(InsectSpray$count, InsectSpray$spray)
+> lapply(spIns,sum)  
+> unlist(sprCount)  sapply(spIns,sum)
+
+* plyr package (work on data frame)
+> ddply(InsectSprays,.(spray),summarize,sum=sum(count))  .() variables we want to summarize
+> spraySums <- ddply(InsectSparys, .(spray), summarize, sum=ave(count,FUN=sum)  dim(spraySums)   sum for every A appreas in the dataset  
+> arrange  for faster reordering without using order() commands
+> acast   for casting as multi-dimensional arrays
+> mutate   add new variables
+
+##Managing Data Frames: dplyr
+
+* chicago <- readRDS("chicago.rds")     dim(chicago)
+* head(select(chicago, 1:5))
+* head(select(chicago, city:dptp))
+* 
+* head(select(chicago, -(city:dptp)))   columns except these columns     i <- match("city", names(chicago))      j <- match("dptp", names(chicago))            head(chicago[, -(i:j)])
+
+ 
+* Filter
+> chic.f <- filter(chicago, pm25tmean2 > 30)          head(select(chic.f, 1:3, pm25tmean2), 10)        
+> chic.f <- filter(chicago, pm25tmean2 > 30 & tmpd > 80)            head(select(chic.f, 1:3, pm25tmean2, tmpd), 10)       
+
+* Arrange 
+> chicago <- arrange(chicago, date)
+> chicago <- arrange(chicago, desc(date))
+
+* Mutate & rename
+> Renaming a variable in a data frame in R is surprising hard to do!
+> chicago <- rename(chicago, dewpoint = dptp, pm25 = pm25tmean2)   new names = old names
+> chicago <- mutate(chicago,pm25detrend=pm25-mean(pm25, na.rm=TRUE))
+
+* Group by
+> chicago <- mutate(chicago, tempcat = factor(1 * (tmpd > 80), labels = c("cold", "hot")))
+> hotcold <- group_by(chicago, tempcat)
+> summarize(hotcold, pm25 = mean(pm25, na.rm = TRUE), o3 = max(o3tmean2), no2 = median(no2tmean2))
+> chicago <- mutate(chicago, year = as.POSIXlt(date)$year + 1900)
+> years <- group_by(chicago, year)
+> summarize(years, pm25 = mean(pm25, na.rm = TRUE), o3 = max(o3tmean2, na.rm = TRUE), no2 = median(no2tmean2, na.rm = TRUE))
+
+* %>% pipline operation
+> chicago %>% mutate(month = as.POSIXlt(date)$mon + 1) %>% group_by(month) %>% summarize(pm25 = mean(pm25, na.rm = TRUE),o3 = max(o3tmean2, na.rm = TRUE), no2 = median(no2tmean2, na.rm = TRUE))       It is like Unix pipeleine. No temporal variables are required
+
+##Merging Data Set
+
+* merge()
+> mergedData = merge(reviews,solutions,by.x="solution_id",by.y = "id", all=TRUE)
+> Default - merge all common column names  ( intersect(names(solutions),names(reviews))
+> You could use join(), but features are limited. 
+
+>dfList = list(d1,d2,d3)  join_all(dfList)
