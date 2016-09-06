@@ -135,3 +135,72 @@
 > You could use join(), but features are limited. 
 
 >dfList = list(d1,d2,d3)  join_all(dfList)
+
+##HomeWork Play with dplyer
+* It's important that you have dplyr version 0.4.0 or later . packageVersion("dplyr")
+> cran<-tbl_df(mydf)
+> rm("mydf")
+*  select(), filter(), arrange(), mutate(), and summarize()
+> select(cran, ip_id, package, country)
+> we don't have to type cran$ip_id, cran$package
+> columns are returned to us in the order we specified
+> select(cran,r_arch:country)  we could use :
+> do select(cran, -time) to omit the time column
+> select(cran, -(X:size))
+
+* Filter()
+> filter(cran, package == "swirl")
+> filter(cran, r_version == "3.1.1", country == "US")
+> filter(cran, r_version <= "3.0.2", country == "IN")
+> filter(cran, country == "US" | country =="IN")
+
+* arrange()
+> arrange(cran2, desc(ip_id))
+> arrange(cran2, country, desc(r_version),ip_id)
+
+* mutate()
+> mutate(cran3, size_mb = size / 2^20)
+> mutate(cran3, size_mb = size / 2^20, size_gb = size_mb / 2^10)
+
+* summarize
+> summarize(cran,avg_bytes = mean(size))
+
+* group_by()
+> by_package<-group_by(cran,package)
+> summarize(by_package,mean(size))    all calculation on each group
+> pack_sum <- summarize(by_package,count = n(),unique = n_distinct(ip_id),countries = n_distinct(country),avg_bytes = mean(size))
+> quantile(pack_sum$count, probs = 0.99)   return 679
+> top_counts<-filter(pack_sum,count>679)
+> View(top_counts)
+> top_counts_sorted<-arrange(top_counts,desc(count))  ggplot2, Rcpp, plyr, rjava, DBI, LPCM, digest, stringr
+
+* Chain %>%  like Unix Command
+cran %>%
+  group_by(package) %>%
+  summarize(count = n(),
+            unique = n_distinct(ip_id),
+            countries = n_distinct(country),
+            avg_bytes = mean(size)
+  ) %>%
+  filter(countries > 60) %>%
+  arrange(desc(countries), avg_bytes)
+
+
+* tidyr and readr
+> each variable for one column
+> res<-gather(students2,sex_class,count,-grade)
+> separate(data=res,col=sex_class,into=c("sex","class"))
+> gather(students3,class,grade,class1:class5,-name,na.rm = TRUE)
+> spread(test,grade)
+> mutate(class=parse_numeric(class))
+
+* merge
+> bind_rows()  
+sat %>%
+  select(-contains("total")) %>%
+  gather(part_sex, count, -score_range) %>%
+  separate(part_sex, c("part", "sex")) %>%
+  group_by(part,sex) %>%
+  mutate(total=sum(count),
+         prop = count/total
+  ) %>% print
