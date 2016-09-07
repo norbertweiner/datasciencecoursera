@@ -4,18 +4,18 @@
 * strsplit(names(cameraData),"\\.")   split with "."
 * sapply(splitNames,firstElement)    firstElement<-function(x){x[1]}
 * sub("_","",names(reviews),)  every time find "_", replace it with ""  just replace first "_" 
-> we use gsub() to replace all "_"
+> we use gsub() to replace all "_"  
 
 * grep("Alameda",cameraData$intersection)
-> grepl("Alameda",..) return TRUE or FALSE Could use it for subsetting data
-> grep(,value=TRUE)  will return values, not just the position
+> grepl("Alameda",..) return TRUE or FALSE Could use it for subsetting data  
+> grep(,value=TRUE)  will return values, not just the position  
 
 * library(stringr)
-> nchar("")   length of the string
-> substr()
-> paste()
-> paste0()  paste no space
-> str_trim()    trim off accessive spaces
+> nchar("")   length of the string  
+> substr()  
+> paste()  
+> paste0()  paste no space  
+> str_trim()    trim off accessive spaces  
 
 
 ##Regular Expressions
@@ -48,11 +48,11 @@
 * julian(d2)
 
 * library(lubridate)
-> ymd("20140108")
-> mdy("08/04/2013")
-> ymd_hms("")
-> ymd_hms(".....:, tz="Pacific/Auckland")
-> wday(x[1]) return 3    wday(x[1],label=True) return Tues        POSIXlt  POSIxct
+> ymd("20140108")  
+> mdy("08/04/2013")  
+> ymd_hms("")  
+> ymd_hms(".....:, tz="Pacific/Auckland")  
+> wday(x[1]) return 3    wday(x[1],label=True) return Tues        POSIXlt  POSIxct  
 
 ## Data Resources
 
@@ -75,15 +75,15 @@
 * update(this_moment, hours = 8, minutes = 34, seconds = 55)
 
 * nyc<-now(tzone = "America/New_York")
-> nyc + days(2)    depart<-nyc + days(2)
-> depart<-update(depart,hours=17,minutes=34)
-> arrive<-depart+hours(15)+minutes(50)
-> arrive<-with_tz(arrive,tzone = "Asia/Hong_Kong")
-> last_time<-mdy("June 17, 2008",tz="Singapore")
-> how_long<-interval(last_time,arrive)
-> as.period(how_long)
-> the authors of lubridate introduce four classes of time related objects: instants, intervals,durations, and periods
-> stopwatch()
+> nyc + days(2)    depart<-nyc + days(2)  
+> depart<-update(depart,hours=17,minutes=34)  
+> arrive<-depart+hours(15)+minutes(50)  
+> arrive<-with_tz(arrive,tzone = "Asia/Hong_Kong")  
+> last_time<-mdy("June 17, 2008",tz="Singapore")  
+> how_long<-interval(last_time,arrive)  
+> as.period(how_long)  
+> the authors of lubridate introduce four classes of time related objects: instants, intervals,durations, and periods  
+> stopwatch()  
 
 
 
