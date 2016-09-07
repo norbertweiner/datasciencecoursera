@@ -20,21 +20,21 @@
 
 ##Regular Expressions
 * Metacharacters:
-> ^I think   ^ begining with I think
-> $ in the end of sentence
-> ^[Ii] am       beginiing of the line either capital I or little i
-> ^[0-9][a-zA-Z]
-> [^?.]$
-> "." mean any character     9/11 or 9-11
-> flood|fire      | character (or)
-> ^[Gg]ood|[Bb]ad   begining with Good/good or Bad/bad
-> [Gg]eorge([Ww]\.)? [Bb]ush    ? means () part is optional     \. is literal . 
-> * means any item, + means "at least one of the item           (.*)   somthing between parentheses
-> [0-9]+ (.*)[0-9]+
-> { and } are referred as interval quantifiers
-> \1 or \2 means repetition     +([a-zA-Z]+) +\1 +   match night night night
-> ^s(.*)s goest for longest possible expression 
-> ^s(.*?)s$
+* ^I think   ^ begining with I think
+* $ in the end of sentence
+* ^[Ii] am       beginiing of the line either capital I or little i
+* ^[0-9][a-zA-Z]
+* [^?.]$
+* "." mean any character     9/11 or 9-11
+* flood|fire      | character (or)
+* ^[Gg]ood|[Bb]ad   begining with Good/good or Bad/bad
+* [Gg]eorge([Ww]\.)? [Bb]ush    ? means () part is optional     \. is literal . 
+* * means any item, + means "at least one of the item           (.*)   somthing between parentheses
+* [0-9]+ (.*)[0-9]+
+* { and } are referred as interval quantifiers
+* \1 or \2 means repetition     +([a-zA-Z]+) +\1 +   match night night night
+* ^s(.*)s goest for longest possible expression 
+* ^s(.*?)s$
 
 ##Working with Dates
 * date() just return characters
