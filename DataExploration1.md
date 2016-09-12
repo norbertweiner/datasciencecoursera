@@ -7,4 +7,8 @@
 5. Describe and document the evidence 
 6. Content is king
 
+##Exploratory Graphs
+
+
+
 
