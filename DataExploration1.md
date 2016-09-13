@@ -20,8 +20,8 @@
 1. boxplot(pm25~region,data=pollution,col="red")
 2. with(pollution,plot(lattitude,pm25))   aline(h=12,lwd=2,lty=2)  
 3. with(pollution,plot(lattitude,pm25,col=region))   use color
-4. par(mfrow=c(1,2),mar=c(5,4,2,1)) with(subset(pollution,region=="west"),plot(lattitude,pm25,main="WEST"))  
-    with(subset(pollution,region=="east"),plot(lattitude,pm25,main="EAST")) 
+4. par(mfrow=c(1,2),mar=c(5,4,2,1)) with(subset(pollution,region=="west"),plot(lattitude,pm25,main="WEST"))    
+    with(subset(pollution,region=="east"),plot(lattitude,pm25,main="EAST"))   
 5. R Graph Gallery
 
 ##Plotting
@@ -53,11 +53,11 @@
 ##Graph Devices
 1. screen device   plot, xyplot,  qplot
 2. file devices  windows()    
-> pdf(file = "")   with(data,plot())   title()   dev.off()  
-> pdf(), svg() (web brower, interactive), win.metafile(), postscript()   VECTOR FORMATS
-> Bitmap Formats:  png; jpeg; tiff; bmp;   BIT MAP FORMATS
-> plot one graphic device at a time; dev.cur()  current active graphic device;  dev.set(<integer>)  switch to device  
-> Copying Plots:dev.copy(png,file="")  dev.off()    dev.copy2pdf() : copy plot to pdf
+> pdf(file = "")   with(data,plot())   title()   dev.off()    
+> pdf(), svg() (web brower, interactive), win.metafile(), postscript()   VECTOR FORMATS  
+> Bitmap Formats:  png; jpeg; tiff; bmp;   BIT MAP FORMATS  
+> plot one graphic device at a time; dev.cur()  current active graphic device;  dev.set(<integer>)  switch to device    
+> Copying Plots:dev.copy(png,file="")  dev.off()    dev.copy2pdf() : copy plot to pdf  
 
 
 
