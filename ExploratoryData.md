@@ -41,4 +41,4 @@ invisible()
 > p1<-colorRampPalette(c("red","blue"))  
 > p1(6)  
 > "#FF0000" "#CC0033" "#990066" "#650099" "#3200CC" "#0000FF"  
-> "0x"cc     cc=204    Then 0x33 = x*16+3 = 51.   red 204 and blue 51
+> "0x"cc   &  cc=204    Then 0x33 = x*16+3 = 51.   red 204 and blue 51
