@@ -59,6 +59,27 @@
 > plot one graphic device at a time; dev.cur()  current active graphic device;  dev.set(<integer>)  switch to device    
 > Copying Plots:dev.copy(png,file="")  dev.off()    dev.copy2pdf() : copy plot to pdf  
 
+##Swirl Study
+
+There are two basic types of file devices, vector and bitmap devices. These use different formats and have different characteristics. Vector formats are good for line drawings and plots with solid colors using a modest number of points, while bitmap formats are good for plots with a large number of points, natural scenes or web-based plots.
+
+* dev.set(<integer>) where <integer> is the number associated with the graphics device  
+* dev.copy(png,file="geyserplot.png")
+* with(cars,plot(speed,dist))    text(mean(cars$speed),max(cars$dist),"SWIRL rules!")  three parameters are positions and text
+* table(state$region)
+* xyplot(Life.Exp~Income|region,data = state,layout=c(4,1))
+* ggplot2
+> qplot(displ,hwy,data=mpg)  
+
+* Base Plotting
+> table(airquality$Month)  
+> boxplot(Ozone~Month, airquality, xlab="Month", ylab="Ozone (ppb)",col.axis="blue",col.lab="red")  
+> names(par());  par()$pin;   
+> These include las (the orientation of the axis labels on the plot), bg (background color), mar (margin size), oma (outer margin size), mfrow and mfcol (number of plots per row, column).  
+> attnonation:  text, title, lines, points  
+> points(notmay$Wind,notmay$Ozone,col="red",pch=8)  
+> legend("topright",pch=c(17,8),col=c("blue","red"),legend=c("May","Other Months"))  
+> abline(v=median(airquality$Wind),lty=2,lwd=2)  
 
 
 
